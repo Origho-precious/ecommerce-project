@@ -1,0 +1,141 @@
+
+.Home{
+    max-width: 100%;
+    margin: 3rem auto 5rem;
+    overflow-x: hidden;
+    
+}
+
+.Home .grid{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 1rem;
+    max-width: 100%;
+    animation-name: grid;
+    animation-duration: 10s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.Home .grid .photo1{
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.Home .grid .photo2{
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.Home .grid .photo3{
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.Home .intro{
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.Home .intro h1{
+    margin: 0.5rem auto;
+}
+
+.Home .intro p{
+    font-size: 1.2rem;
+}
+
+.Home .link{
+    display: block;
+    color: #FCFCFC;
+    background-color: #847D80;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    max-width: 30%;
+    margin: auto;
+    padding: 1rem 0;
+    transition: all 0.5s;
+}
+
+.Home .link:hover{
+    background: #956B55;;
+}
+
+@keyframes grid{
+    from{
+        transform: translateX(0);
+    }
+
+    to{
+        transform: translateX(-320px);
+    }
+}
+
+@media(max-width: 900px){
+    
+    .Home .grid{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Home .grid{
+        max-width: 60%;
+        margin: auto;
+    }
+
+    .Home .grid .photo1,
+    .Home .grid .photo2,
+    .Home .grid .photo3{
+        margin-bottom: 1rem;
+        max-height: 300px;
+    }
+
+    .Home .grid .photo4{
+        margin-bottom: 1rem;
+        max-height: 200px;
+    }
+
+    .Home .intro{
+        margin: 3rem auto;
+        text-align: center;
+    }
+
+    .Home .intro h1{
+        font-size: 1.6rem;
+        margin: 0.5rem auto;
+    }
+
+    .Home .intro p{
+        font-size: 1rem;
+    }
+
+    .Home .link{
+        font-size: 1.2rem;
+        max-width: 50%;
+    }
+        
+    @keyframes grid{
+        from{
+            transform: translateX(0);
+        }
+
+        to{
+            transform: translateX(0);
+        }
+    }
+
+}
+
+@media(max-width: 600px){
+    .Home .grid{
+        max-width: 90%;
+        margin: auto;
+    }
+    
+    .Home .link{
+        max-width: 60%;
+    }
+}

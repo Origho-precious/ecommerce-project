@@ -1,0 +1,126 @@
+
+.Collection{
+    max-width: 100%;
+    margin: 2rem auto 5rem;
+}
+
+.Collection .intro{
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.Collection .intro h1{
+    margin-bottom: 0.5rem;
+}
+
+.Collection .intro p{
+    font-size: 1.2rem;
+}
+
+.Collection .grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+}
+
+.Collection .grid .iphone{
+   background: #FAFAFA;
+   max-width: 100%;
+   text-align: center;
+   padding: 4rem 0 0;
+}
+
+.Collection .grid .link{
+    color: #333;
+    text-decoration: none;
+}
+
+.Collection .grid .iphone img{
+    max-width: 70%;
+    max-height: 150px;
+}
+
+.Collection .grid .iphone .name{
+    margin-top: 1rem;
+    font-weight: 700;
+}
+
+.Collection .grid .iphone .price{
+    margin-bottom: 3rem;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.Collection .grid .iphone span{
+    display: inline-block;
+    text-decoration: line-through;
+    font-size: 0.9rem;
+    color: #956B55;
+    padding: 2px;
+}
+
+.Collection .grid .iphone button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: #956B55;
+    border-radius: 0.5rem;
+    color: #FAFAFA;
+    font-size: 1rem;
+    font-weight: 700;
+    width: 100%;
+    padding: 0.9rem 0;
+    transition: all 0.7s;
+}
+
+.Collection .grid .iphone button:hover{
+    opacity: 0.8;
+}
+
+
+@media(max-width: 1200px){
+    .Collection .grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem 1rem;
+    }
+
+    
+    .Collection .grid .iphone img{
+        max-width: 70%;
+        max-height: 120px;
+    }
+    
+    .Collection .grid .iphone{
+        padding: 3rem 0 0;
+    }
+}
+
+
+@media(max-width: 700px){
+    .Collection .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+    }
+
+    .Collection .grid .iphone img{
+        max-width: 70%;
+        max-height: 90px;
+    }
+}
+
+
+@media(max-width: 400px){
+    .Collection .grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+    }
+    
+    .Collection .grid .iphone img{
+        max-width: 70%;
+        max-height: 150px;
+    }
+    
+}

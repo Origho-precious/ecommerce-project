@@ -1,0 +1,211 @@
+
+.Nav{
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FCFCFC;
+    color: #847D80;
+    padding: 1rem 2rem;
+}
+
+.Nav h3 span{
+    color: #956B55;
+    font-style: oblique;
+}
+
+.checkbox{
+    width: 80px;
+    height: 40px;
+    position: absolute;
+    right: 3rem;
+    z-index: 1;
+    opacity: 0;
+}
+
+.toggler{
+    display: none;
+    position: absolute;
+    right: 4.75rem;
+    z-index: 0;
+}
+
+.toggler > div::before{
+    content: '';
+    width: 45px;
+    height: 4px;
+    background: #847D80;
+    position: absolute;
+    top: 0.7rem;
+}
+
+.toggler > div{
+    position: relative;
+    width: 35px;
+    height: 4px;
+    background: #847D80;
+    transition: all 0.4s ease-in;
+}
+
+.toggler > div::after{
+    content: '';
+    width: 45px;
+    height: 4px;
+    background: #847D80;
+    position: absolute;
+    top: -0.7rem;
+}
+
+.Navs{
+    display: flex;
+}
+
+.Nav .link{
+    color: #847D80;
+    font-weight: 600;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: all 1s;
+}
+
+.link:hover{
+    color: #d85814;
+}
+
+.Nav .icons{
+    display: flex;   
+    align-items: center;
+    max-width: 100%;
+    margin-left: 4rem;
+}
+
+.Nav .icons .link{
+    display: flex;
+    margin-right: 2rem;
+}
+
+.Nav .icons .link h3{
+    margin-left: 0.3rem;
+}
+
+.Nav .icons img{
+    display: inline-block;
+}
+.Nav .icons .cart{
+    max-width: 55%;
+}
+.Nav .icons img{
+    max-width: 43%;
+}
+
+@media(max-width: 900px){
+        
+    .Nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #FCFCFC;
+        color: #847D80;
+        padding: 1rem 2rem;
+    }
+     
+    .checkbox{
+        right: 0.7rem;
+    }
+
+    .toggler{
+        right: 2.4rem;
+    }
+
+    .Navs{
+        display: none;
+    }
+
+    .toggler{
+        display: block;
+        cursor: pointer;
+    }
+
+    .checkbox:checked ~ .Navs{
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 5.6rem;
+        right: 0;
+        text-align: right;
+        background: #FCFCFC;
+        padding: 0.6rem 2rem 5rem;
+        transition: all 1s ease-in;
+        z-index: 10;
+    }
+
+    .checkbox:checked:hover + .toggler > div{
+        transform: rotate(225deg)
+    }
+
+    .Nav .link{
+        display: block;
+        margin-top: 1.5rem;
+        margin-left: 1rem;
+    }
+
+    .Nav .icons{
+        display: flex;  
+        flex-direction: column;
+        align-self: end;
+    }
+    
+    .Nav .icons .link{
+        display: flex;
+    }
+    
+    .checkbox:checked + .toggler > div{
+        transform: rotate(135deg);
+        width: 45px;
+    }
+
+    .checkbox:checked + .toggler > div::after,
+    .checkbox:checked + .toggler > div::before{
+        top: 0;
+        transform: rotate(90deg);
+    }
+}
+
+@media(max-width: 600px){
+  
+    .Nav h3{
+        font-size: 1rem;
+    }
+
+    .checkbox{
+        right: 0.4rem;
+    }
+
+    .toggler{
+        right: 1.9rem;
+    }
+     
+    .checkbox:checked + .toggler > div{
+        width: 35px;
+    }
+        
+    .toggler > div::before{
+        width: 35px;
+        height: 4px;
+        top: 0.5rem;
+    }
+
+    .toggler > div{
+        width: 35px;
+        height: 4px;
+    }
+
+    .toggler > div::after{
+        width: 35px;
+        height: 4px;
+        top: -0.5rem;
+    }
+
+    
+}

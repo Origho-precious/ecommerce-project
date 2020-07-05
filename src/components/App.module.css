@@ -1,0 +1,15 @@
+
+.App{
+    max-width: 89%;
+    margin: 2rem auto;
+}
+
+.App .footer{
+    text-align: center;
+}
+
+@media(max-width: 900px){
+    .App{
+        max-width: 95%;
+    }
+}

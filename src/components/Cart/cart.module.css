@@ -1,0 +1,130 @@
+
+.Cart{
+    max-width: 100%;
+    margin: 2rem auto;
+}
+
+.Cart h1{
+    text-align: center;
+}
+
+.Cart .products{
+    max-width: 50%;
+    margin: 2rem auto;
+}
+
+.Cart .product{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-column-gap: 2rem;
+    align-items: center;
+    background: #fafafa;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.Cart .product > .div1{
+    display: flex;
+    align-items: center;
+}
+
+.Cart .product > .div2{
+    display: block;
+}
+
+.Cart .product .div2 h3{
+    color: #f1732e;
+}
+
+.Cart .product .itemImg{
+    max-width: 15%;
+    margin-right: 1rem;
+}
+
+.Cart .summary{
+    background-color: #fafafa;
+    color: #f1732e;
+    border-radius: 0.5rem;
+    max-width: 50%;
+    margin: 5rem auto 2rem;
+    padding: 3rem 4rem 2rem;
+}
+
+.Cart .summary div{
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Cart button{
+    color: #fff;
+    background-color: #f1732e;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    outline: none;
+    height: 55px;
+    width: 100%;
+    margin-top: 3rem;
+    transition: opacity 1s;
+}
+
+.Cart button:hover{
+    opacity: 0.8;
+}
+
+.empty{
+    text-align: center;
+    color: #f1732e;
+    margin: 5rem 0;
+}
+
+.empty .link{
+    display: block;
+    color: #f1732e;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 1rem auto 0;
+    max-width: max-content;
+}
+
+
+@media(max-width: 1200px){
+    .Cart .products{
+        max-width: 70%;
+        margin: 2rem auto;
+    }
+        
+    .Cart .summary{
+        max-width: 70%;
+    }
+}
+
+
+@media(max-width: 900px){
+    .Cart .products{
+        max-width: 90%;
+        margin: 2rem auto;
+    }
+        
+    .Cart .summary{
+        max-width: 90%;
+    }
+}
+
+@media(max-width: 500px){
+
+    .Cart .products{
+        max-width: 90%;
+        margin: 2rem auto;
+    }
+        
+    .Cart .summary{
+        max-width: 90%;
+    }
+}
