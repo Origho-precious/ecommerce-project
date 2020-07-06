@@ -3,9 +3,6 @@
     max-width: 100%;
     margin: 5rem auto 5rem;
     overflow-x: hidden;
-    position: relative;
-    z-index: -1;
-    
 }
 
 .Home .grid{
@@ -18,6 +15,8 @@
     animation-fill-mode: backwards;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    position: relative;
+    z-index: -1;
 }
 
 .Home .grid .photo1{
