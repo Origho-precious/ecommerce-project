@@ -42,7 +42,7 @@ class Collection extends Component{
                             <p className={styles.name}>{product.name}</p>
                             <p className={styles.price}>{product.discountPrice} <span>{product.originalPrice}</span></p>
                         </Link>
-                        <Link className={styles.addBtn} to="/collection/cart" id={product.id} onClick={this.addToCart}>Add to Cart</Link>
+                        <button type="button" id={product.id} onClick={this.addToCart}>Add to Cart</button>
                     </div>
                 )
             })
