@@ -97,6 +97,12 @@
 }
 
 
+@media(max-width: 900px){
+    .Collection{
+        margin-top: 4rem;
+    }
+}
+
 @media(max-width: 700px){
     .Collection .grid{
         display: grid;

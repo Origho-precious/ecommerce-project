@@ -10,6 +10,7 @@ import iphoneXr from '../../assets/products/iphone xr.png'
 import iphoneXmas from '../../assets/products/iphone xmax.png'
 import iphone11pro from '../../assets/products/iphone 11pro.png'
 import iphone11promax from '../../assets/products/iphone 11promax.png'
+import Navbar from '../Navbar';
 import { fetchProducts, addToCart } from '../../actions';
 
 const imgs = [iphone6, iphone7, iphone8, iphoneX, iphoneXr, iphoneXmas, iphone11pro, iphone11promax]
@@ -23,6 +24,12 @@ class Collection extends Component{
     addToCart = event => {
         this.props.addToCart(event.target.id);
         event.target.disabled = true;
+    }
+
+    numOfCartItems = () =>{
+        if(this.props.cart){
+            return this.props.cart.length
+        }
     }
 
     renderProducts = () => {
@@ -44,22 +51,26 @@ class Collection extends Component{
 
     render(){
         return(
-            <div className={styles.Collection}>
-                <div className={styles.intro}>
-                    <h1>Iphone Collection</h1>
-                    <p>Discover the collection of fantastic phones from Richard's store, <br/> ranging from mid-range iphone6 to high end devices like iphone 11pro max.</p>
+            <>
+                <Navbar cartNum={this.numOfCartItems()}/>
+                <div className={styles.Collection}>
+                    <div className={styles.intro}>
+                        <h1>Iphone Collection</h1>
+                        <p>Discover the collection of fantastic phones from Richard's store, <br/> ranging from mid-range iphone6 to high end devices like iphone 11pro max.</p>
+                    </div>
+                    <div className={styles.grid}>
+                    {this.renderProducts()}
+                    </div>
                 </div>
-                <div className={styles.grid}>
-                   {this.renderProducts()}
-                </div>
-            </div>
+            </>
         )
     }
 };
 
 const mapStateToProps = (state) => {
     return{
-        products: state.products
+        products: state.products,
+        cart: state.cart
     }
 }
 

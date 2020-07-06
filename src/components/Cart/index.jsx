@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
+import Navbar from '../Navbar';
 import styles from './cart.module.css';
 import iphone6 from '../../assets/products/iphone 6.png'
 import iphone7 from '../../assets/products/iphone 7plus.png'
@@ -47,26 +48,32 @@ class Cart extends Component{
     render(){
         if(this.props.cart.length === 0){
             return(
-                <div className={styles.empty}>
-                    <h1>CART IS EMPTY...</h1>
-                    <Link to="/collection" className={styles.link}>Want to add to cart? click me</Link>
-                </div>
+                <>
+                    <Navbar/>
+                    <div className={styles.empty}>
+                        <h1>CART IS EMPTY...</h1>
+                        <Link to="/collection" className={styles.link}>Want to add to cart? click me</Link>
+                    </div>
+                </>
             )
         }
         return(
-            <div className={styles.Cart}>
-                <h1>YOUR CART</h1>
-                <div className={styles.products}>
-                    { this.rendercart() }
-                </div>
-                <div className={styles.summary}>
-                    <div>
-                        <h2>TOTAL:</h2>
-                        <h2>${ this.getTotalPrice() }</h2>
+            <>
+                <Navbar/>
+                <div className={styles.Cart}>
+                    <h1>YOUR CART</h1>
+                    <div className={styles.products}>
+                        { this.rendercart() }
                     </div>
-                    <button type="button">CHECKOUT</button>
+                    <div className={styles.summary}>
+                        <div>
+                            <h2>TOTAL:</h2>
+                            <h2>${ this.getTotalPrice() }</h2>
+                        </div>
+                        <button type="button">CHECKOUT</button>
+                    </div>
                 </div>
-            </div>
+            </>
         )
 
     }

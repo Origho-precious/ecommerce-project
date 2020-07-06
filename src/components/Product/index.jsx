@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Navbar from '../Navbar';
 import styles from './product.module.css';
 import iphone6 from '../../assets/products/iphone 6.png'
 import iphone7 from '../../assets/products/iphone 7plus.png'
@@ -24,6 +25,13 @@ class Product extends Component{
         event.target.disabled = true;
     }
 
+    numOfCartItems = () =>{
+        if(this.props.cart){
+            return this.props.cart.length
+        }
+    }
+
+
     showProduct = () => { 
         if(!this.props.product){
             return <h1>Loading...</h1>
@@ -43,16 +51,20 @@ class Product extends Component{
 
     render(){
         return(
-            <div className={styles.Product}>
-                { this.showProduct() }
-            </div>
+            <>
+                <Navbar cartNum={this.numOfCartItems()}/>
+                <div className={styles.Product}>
+                    { this.showProduct() }
+                </div>
+            </>
         )
     }
 }
 
 const mapStateToProps = state=> {
     return{
-        product: state.product
+        product: state.product,
+        cart: state.cart
     }
 }
 

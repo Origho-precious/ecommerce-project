@@ -1,8 +1,10 @@
 
 .Home{
     max-width: 100%;
-    margin: 3rem auto 5rem;
+    margin: 5rem auto 5rem;
     overflow-x: hidden;
+    position: relative;
+    z-index: -1;
     
 }
 
