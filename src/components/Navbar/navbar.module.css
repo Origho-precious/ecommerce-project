@@ -205,8 +205,9 @@
     }
 
     .Nav .icons span{
+        position: absolute;
         top: -0.7rem;
-        left: 8.6rem;
+        left: 2.6rem;
     }
     
     .Nav .icons .link img{
