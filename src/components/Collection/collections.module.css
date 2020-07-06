@@ -59,7 +59,7 @@
     padding: 2px;
 }
 
-.Collection .grid .iphone button{
+.Collection .grid .iphone .addBtn{
     cursor: pointer;
     border: none;
     outline: none;
@@ -73,7 +73,7 @@
     transition: all 0.7s;
 }
 
-.Collection .grid .iphone button:hover{
+.Collection .grid .iphone .addBtn:hover{
     opacity: 0.8;
 }
 
