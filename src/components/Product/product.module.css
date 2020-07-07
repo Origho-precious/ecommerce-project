@@ -44,3 +44,32 @@
 .Product button:hover{
     opacity: 0.9;
 }
+
+@media(max-width: 900px){
+        
+    .Product{
+        max-width: 90%;
+        margin: 5rem auto 3rem;
+    }
+
+    .Product .features{
+        display: block;
+        max-width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .Product .features img{
+        max-width: 50%;
+        margin: 1rem auto 2rem;
+    }
+
+    .Product .features .text{
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .Product button{
+        width: 80%;
+    }
+}
