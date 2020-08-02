@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import Navbar from '../Navbar';
 import styles from './cart.module.css';
 import iphone6 from '../../assets/products/iphone 6.png'
@@ -11,32 +11,72 @@ import iphoneXr from '../../assets/products/iphone xr.png'
 import iphoneXmas from '../../assets/products/iphone xmax.png'
 import iphone11pro from '../../assets/products/iphone 11pro.png'
 import iphone11promax from '../../assets/products/iphone 11promax.png';
-
+import {  deleteCartItem, increaseQuantity, decreaseQuantity } from '../../actions';
 const imgs = [iphone6, iphone7, iphone8, iphoneX, iphoneXr, iphoneXmas, iphone11pro, iphone11promax]
+
 
 class Cart extends Component{
     rendercart(){
-        return this.props.cart.map((product, id) => {
-            return(
-                <div className={styles.product} key={id}>
-                    <div className={styles.div1}>
-                        <img className={styles.itemImg} src={imgs[product.id]} alt="img"/>
-                        <h3>{product.name}</h3>
-                    </div>
-                    <h3>{product.discountPrice}</h3>
+        if (this.props.cart) {
+            const {
+              user,
+              
+              deleteCartItem,
+              increaseQuantity,
+              decreaseQuantity,
+            } = this.props;
+            return this.props.cart.map((product, id) => {
+            return (
+              <div className={styles.product} key={id}>
+                <div className={styles.div1}>
+                  <img
+                    className={styles.itemImg}
+                    src={imgs[product.id]}
+                    alt="img"
+                  />
+                  <h3>{product.name}</h3>
                 </div>
-            )
+                <div className={styles.div2}>
+                  <div className={styles.price}>
+                    <span
+                      onClick={() =>
+                        decreaseQuantity(user.id, product)
+                      }
+                    >
+                      &lt;
+                    </span>
+                    <h3>
+                      {product.quantity}&nbsp; x &nbsp;$
+                      {product.price.slice(1) * product.quantity}
+                    </h3>
+                    <span
+                      onClick={() =>
+                        increaseQuantity(user.id, product)
+                      }
+                    >
+                      &gt;
+                    </span>
+                  </div>
+                  <span
+                    onClick={() => {
+                      deleteCartItem(user.id, product.id);
+                    }}
+                    className={styles.delete}
+                  >
+                    <i className="fas fa-trash"></i>
+                  </span>
+                </div>
+              </div>
+            );
         });
+        }
     }
 
     getTotalPrice(){
         if(this.props.cart.length > 0){
             const price = this.props.cart.map(item => {
-                return item.discountPrice
-            }).map(item => {
-                return item.slice(1)
-            }).map(item => {
-                return Number(item)
+                let x = item.price.slice(1)
+                return Number(x) * item.quantity
             }).reduce((prev, cur) => {
                 return prev + cur
             })
@@ -46,7 +86,7 @@ class Cart extends Component{
     }
 
     render(){
-        if(this.props.cart.length === 0){
+        if(!this.props.cart || this.props.cart.length === 0 ){
             return(
                 <>
                     <Navbar/>
@@ -57,11 +97,12 @@ class Cart extends Component{
                 </>
             )
         }
+
         return(
             <>
                 <Navbar/>
                 <div className={styles.Cart}>
-                    <h1>YOUR CART</h1>
+                    <h1 className={styles.title}>YOUR CART</h1>
                     <div className={styles.products}>
                         { this.rendercart() }
                     </div>
@@ -79,10 +120,16 @@ class Cart extends Component{
     }
 }
 
-const mapStateToProps = (state) => {
-    return{
-        cart: state.cart
+const mapStateToProps = ({ user, cart }) => {
+    return {
+        user,
+        cart
     }
 }
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, {
+  
+  deleteCartItem,
+  increaseQuantity,
+  decreaseQuantity,
+})(Cart);

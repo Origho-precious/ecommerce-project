@@ -61,10 +61,6 @@
     display: flex;
 }
 
-.Nav .navLinks i{
-    display: none;
-}
-
 .Nav .link{
     color: #847D80;
     font-weight: 600;
@@ -133,16 +129,10 @@
         padding: 1rem 2rem;
     }
 
+        
     .Nav .navLinks i{
-        display: block;
-        font-size: 1.7rem;
-        margin-bottom: 0;
-    }    
-     
-
-    .Nav .navLinks span{
         display: none;
-    }    
+    }        
      
     .checkbox{
         right: 0.7rem;
@@ -183,6 +173,7 @@
         display: block;
         background: #fafafa;
         margin-top: 1rem;
+        cursor: pointer;
     }
 
     .Nav .icons{
@@ -199,19 +190,15 @@
         left: 0.9rem;
         margin-bottom: 0.5rem;
     }
-    
-    .Nav .icons .link h3{
-        display: none;
-    }
 
     .Nav .icons span{
         position: absolute;
-        top: -0.7rem;
-        left: 2.6rem;
+        top: -0.6rem;
+        left: 2.4rem;
     }
     
     .Nav .icons .link img{
-        width: 60px;
+        display: none;
     }
     
     .checkbox:checked + .toggler > div{

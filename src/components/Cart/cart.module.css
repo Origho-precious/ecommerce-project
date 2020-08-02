@@ -4,8 +4,9 @@
     margin: 2rem auto;
 }
 
-.Cart h1{
+.Cart .title{
     text-align: center;
+    margin-top: 4rem;
 }
 
 .Cart .products{
@@ -15,7 +16,7 @@
 
 .Cart .product{
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr 2fr;
     grid-column-gap: 2rem;
     align-items: center;
     background: #fafafa;
@@ -29,12 +30,38 @@
     align-items: center;
 }
 
-.Cart .product > .div2{
-    display: block;
+.Cart .product > .div1 h1{
+    margin-right: 1rem;
+}
+
+.Cart .product .div2 .price{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Cart .product .div2 .price span{
+    display: inline-block;
+    margin: 0 0.7rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.Cart .product .div2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .Cart .product .div2 h3{
     color: #f1732e;
+}
+
+.Cart .product .div2 .delete{
+    color: #f1732e;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .Cart .product .itemImg{

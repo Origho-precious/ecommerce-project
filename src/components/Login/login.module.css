@@ -1,0 +1,41 @@
+
+.Login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.Login h2{
+    text-align: center;  
+}
+
+
+.Login button {
+    background: #956B55;
+    color: #FAFAFA;
+    outline: none;
+    border: none;
+    height: 60px;
+    width: 30%;
+    margin: 2rem 0;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+}
+
+.Login button:hover {
+    opacity: 0.8;
+}
+
+@media(max-width: 900px){
+    .Login button {
+        width: 50%;
+    }
+}
+
+@media(max-width: 500px){
+    .Login button {
+        width: 90%;
+    }
+}
