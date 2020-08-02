@@ -1,58 +1,53 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
 import styles from './collections.module.css';
-import iphone6 from '../../assets/products/iphone 6.png'
-import iphone7 from '../../assets/products/iphone 7plus.png'
-import iphone8 from '../../assets/products/iphone 8.png'
-import iphoneX from '../../assets/products/iphone X.png'
-import iphoneXr from '../../assets/products/iphone xr.png'
-import iphoneXmas from '../../assets/products/iphone xmax.png'
-import iphone11pro from '../../assets/products/iphone 11pro.png'
-import iphone11promax from '../../assets/products/iphone 11promax.png'
 import Navbar from '../Navbar';
-import { fetchProducts, addToCart } from '../../actions';
-
-const imgs = [iphone6, iphone7, iphone8, iphoneX, iphoneXr, iphoneXmas, iphone11pro, iphone11promax]
+import { getProducts, addToCart } from '../../actions';
+import STORE_DATA from '../../data/data'
 
 
 class Collection extends Component{
     componentDidMount(){
-        this.props.fetchProducts();
+        this.props.getProducts(STORE_DATA);
     }
 
-    addToCart = event => {
-        this.props.addToCart(event.target.id);
-        event.target.disabled = true;
-    }
-
-    numOfCartItems = () =>{
-        if(this.props.cart){
-            return this.props.cart.length
+    addToCart = id => {
+        const product = this.props.products[id]
+        if (this.props.user) {
+            const userId = this.props.user.id;
+            this.props.addToCart(userId, product);
         }
     }
 
     renderProducts = () => {
-        if(this.props.products){
-            return this.props.products.map((product, id) => {
-                return(
-                    <div className={styles.iphone} key={id}>
-                        <Link className={styles.link} to={`/collection/product/${id}`}>
-                            <img src={imgs[id]} alt="icon"/>
+        if (this.props.products) {
+            return this.props.products.map(product => {
+                return (
+                    <div className={styles.iphone} key={product.id}>
+                        <div className={styles.link}>
+                            <img src={product.image} alt="icon" />
                             <p className={styles.name}>{product.name}</p>
-                            <p className={styles.price}>{product.discountPrice} <span>{product.originalPrice}</span></p>
-                        </Link>
-                        <button type="button" id={product.id} onClick={this.addToCart}>Add to Cart</button>
-                    </div>
-                )
+                            <p className={styles.price}>
+                                {product.discountPrice}{" "}
+                                <span>{product.originalPrice}</span>
+                            </p>
+                        </div>
+                        <button
+                            type="button"
+                            onClick={() => this.addToCart(product.id)}
+                            >
+                        Add to Cart
+                        </button>
+                  </div>
+                );
             })
         }
     }
 
-    render(){
+    render() {
         return(
             <>
-                <Navbar cartNum={this.numOfCartItems()}/>
+                <Navbar/>
                 <div className={styles.Collection}>
                     <div className={styles.intro}>
                         <h1>Iphone Collection</h1>
@@ -67,11 +62,11 @@ class Collection extends Component{
     }
 };
 
-const mapStateToProps = (state) => {
-    return{
-        products: state.products,
-        cart: state.cart
+const mapStateToProps = ({ user, products }) => {
+    return {
+        user,
+        products
     }
 }
 
-export default connect(mapStateToProps, { fetchProducts, addToCart })(Collection);
+export default connect(mapStateToProps, { getProducts, addToCart })(Collection);

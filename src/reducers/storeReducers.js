@@ -1,26 +1,30 @@
 
-export const productsReducer = (state = null, action) => {
+export const productsReducer = (state = [], action) => {
     switch(action.type){
-        case 'FETCH_PRODUCTS':
+        case 'GET_PRODUCTS':
             return action.payload;
         default:
             return state;
     }
 }
 
-export const productReducer = (state = null, action) => {
+export const setUserReducer = (state = null, action) => {
     switch(action.type){
-        case 'FETCH_PRODUCT':
+        case 'SET_CURRENT_USER':
             return action.payload;
         default:
             return state;
     }
 }
 
-export const addToCart = (state = [], action) => {
+export const addToCart = (state = null, action) => {
     switch(action.type){
         case 'ADD_TO_CART':
-            return [ ...state, action.payload ];
+            return action.payload;
+        case 'FETCH_CART_ITEMS':
+            return action.payload;
+        case 'UPDATE_QUANTITY':
+            return action.payload;
         default:
             return state;
     }
