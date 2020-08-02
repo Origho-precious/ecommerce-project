@@ -24,7 +24,7 @@ const Home = () => {
                     <h1>Welcome to Richard's store</h1>
                     <p>From expectional in scale to more elegant and delicate in design/durable products. <br/> Our iphone collection offers products of timeless beauty.</p>
                 </div>
-                <Link to="/collection" className={styles.link}>See Collection</Link>
+                <Link to="/login" className={styles.link}>See Collection</Link>
             </div>
         </>
     )
